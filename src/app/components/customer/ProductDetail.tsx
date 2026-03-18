@@ -3,6 +3,7 @@ import { useParams, useNavigate } from "react-router";
 import { motion } from "motion/react";
 import { ArrowLeft, Star, Plus, Minus, ShoppingCart, CheckCircle, Loader2 } from "lucide-react";
 import { useCart } from "../../context/CartContext";
+import { API_BASE } from "../../context/AuthContext";
 
 export function ProductDetail() {
   const { id } = useParams();
@@ -15,7 +16,6 @@ export function ProductDetail() {
   const [added, setAdded] = useState(false);
   const [related, setRelated] = useState<any[]>([]);
 
-  const API_BASE = (import.meta as any).env.VITE_API_BASE || "http://localhost:5000/api";
 
   useEffect(() => {
     setLoading(true);

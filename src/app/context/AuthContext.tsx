@@ -21,9 +21,10 @@ interface AuthContextType extends AuthState {
   updateProfile: (data: Partial<User>) => Promise<void>;
 }
 
-const AuthContext = createContext<AuthContextType | null>(null);
+import { API_BASE } from "../config/api";
+export { API_BASE };
 
-export const API_BASE = import.meta.env.VITE_API_URL || import.meta.env.VITE_API_BASE || "http://localhost:5000/api";
+const AuthContext = createContext<AuthContextType | null>(null);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [state, setState] = useState<AuthState>(() => {
