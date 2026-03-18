@@ -20,7 +20,7 @@ import {
   Zap,
 } from "lucide-react";
 import riderImage from "@/assets/banner.png";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../context/AuthContext";
 
 const floatingItems = ["🥕", "🍅", "🥦", "🍎", "🥛", "🧅", "🌽", "🍋", "🥬", "🍇"];
 
