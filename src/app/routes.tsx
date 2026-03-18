@@ -1,7 +1,6 @@
 import { createBrowserRouter, Navigate } from "react-router";
 import { RootLayout } from "./components/RootLayout";
 import { LandingPage } from "./components/LandingPage";
-import { LoginPage } from "./components/LoginPage";
 import { CustomerLoginPage } from "./components/CustomerLoginPage";
 import { RiderLoginPage } from "./components/RiderLoginPage";
 import { AdminLoginPage } from "./components/AdminLoginPage";
@@ -33,7 +32,6 @@ export const router = createBrowserRouter([
     Component: RootLayout,
     children: [
       { index: true, Component: LandingPage },
-      { path: "login", Component: LoginPage },
       { path: "login/customer", Component: CustomerLoginPage },
       { path: "login/rider", Component: RiderLoginPage },
       { path: "login/admin", Component: AdminLoginPage },
