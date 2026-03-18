@@ -3,7 +3,7 @@ import { API_BASE } from "../config/api";
 import { useAuth } from "./AuthContext";
 
 export interface CartProduct {
-  id: string;
+  id: number;
   name: string;
   price: number;
   image_url?: string;
@@ -22,10 +22,10 @@ interface CartContextType {
   loading: boolean;
   cartCount: number;
   cartTotal: number;
-  addToCart: (product_id: string, quantity?: number) => Promise<void>;
-  removeFromCart: (product_id: string) => Promise<void>;
+  addToCart: (product_id: number, quantity?: number) => Promise<void>;
+  removeFromCart: (product_id: number) => Promise<void>;
   clearCart: () => Promise<void>;
-  getQty: (product_id: string) => number;
+  getQty: (product_id: number) => number;
   refreshCart: () => Promise<void>;
 }
 
@@ -59,7 +59,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     fetchCart();
   }, [fetchCart]);
 
-  const addToCart = async (product_id: string, quantity = 1) => {
+  const addToCart = async (product_id: number, quantity = 1) => {
     await fetch(`${API_BASE}/cart/add`, {
       method: "POST",
       headers: authHeaders,
@@ -68,7 +68,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     await fetchCart();
   };
 
-  const removeFromCart = async (product_id: string) => {
+  const removeFromCart = async (product_id: number) => {
     await fetch(`${API_BASE}/cart/remove`, {
       method: "POST",
       headers: authHeaders,
@@ -82,7 +82,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setItems([]);
   };
 
-  const getQty = (product_id: string) =>
+  const getQty = (product_id: number) =>
     items.find((i) => i.products?.id === product_id)?.quantity || 0;
 
   const cartCount = items.reduce((s, i) => s + i.quantity, 0);

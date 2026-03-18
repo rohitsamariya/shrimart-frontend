@@ -2,7 +2,7 @@ import { createContext, useContext, useState, useEffect, ReactNode } from "react
 import { API_BASE } from "./AuthContext";
 
 export interface Product {
-  id: string;
+  id: number;
   name: string;
   price: number;
   category_id?: string;

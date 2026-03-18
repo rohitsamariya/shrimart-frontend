@@ -97,7 +97,7 @@ export function HistoryPage() {
                       <span className="font-bold text-shrimart-black text-[22px]">₹{order.total_amount}</span>
                     </div>
                     <div className="flex items-center gap-3">
-                      <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest capitalize">
+                      <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest">
                         {order.payment_method}
                       </span>
                       {order.status === "delivered" && (

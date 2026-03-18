@@ -92,7 +92,7 @@ export function AdminDashboard() {
     }
   };
 
-  const deleteProduct = async (id: string) => {
+  const deleteProduct = async (id: number) => {
     if (!confirm("Delete this product?")) return;
     await fetch(`${API_BASE}/products/${id}`, { method: "DELETE", headers: authHeaders });
     fetchProducts();

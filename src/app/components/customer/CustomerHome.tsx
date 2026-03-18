@@ -12,7 +12,7 @@ export function CustomerHome() {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [search, setSearch] = useState("");
 
-  const categories = ["All", ...Array.from(new Set(products.map(p => p.category)))];
+  const categories = ["All", ...Array.from(new Set(products.map(p => p.category || "General")))];
 
   const filtered = products.filter((p) => {
     const matchCat = selectedCategory === "All" || p.category === selectedCategory;
@@ -58,7 +58,7 @@ export function CustomerHome() {
             return (
               <button
                 key={c}
-                onClick={() => setSelectedCategory(c)}
+                onClick={() => setSelectedCategory(c || "General")}
                 className="flex flex-col items-center gap-3 flex-shrink-0 group"
               >
                 <div className={`w-[72px] h-[72px] rounded-full flex items-center justify-center text-3xl transition-all border ${

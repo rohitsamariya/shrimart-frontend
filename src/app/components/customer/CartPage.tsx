@@ -115,14 +115,14 @@ export function CartPage() {
                     <div className="flex items-center gap-3 bg-slate-50 rounded-2xl p-1 shadow-inner">
                       <button
                         className="w-8 h-8 bg-white border border-gray-100 rounded-xl flex items-center justify-center shadow-sm hover:bg-red-50 hover:text-red-500 transition-all active:scale-90"
-                        onClick={() => removeFromCart(p.id)}
+                        onClick={() => removeFromCart(Number(p.id))}
                       >
                         <Minus size={14} />
                       </button>
                       <span className="font-bold text-shrimart-black w-6 text-center text-[16px] font-inter">{item.quantity}</span>
                       <button
                         className="w-8 h-8 bg-shrimart-yellow rounded-xl flex items-center justify-center shadow-sm hover:bg-shrimart-yellow-dark transition-all active:scale-90"
-                        onClick={() => addToCart(p.id)}
+                        onClick={() => addToCart(Number(p.id))}
                       >
                         <Plus size={14} className="text-shrimart-black" />
                       </button>

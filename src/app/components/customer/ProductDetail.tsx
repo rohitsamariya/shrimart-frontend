@@ -75,7 +75,7 @@ export function ProductDetail() {
   const cartQty = getQty(Number(product.id));
 
   const handleAddToCart = () => {
-    for (let i = 0; i < qty; i++) addToCart(product.id);
+    for (let i = 0; i < qty; i++) addToCart(Number(product.id));
     setAdded(true);
     setTimeout(() => setAdded(false), 2000);
   };
